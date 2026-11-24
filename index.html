@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Village Sushi Bar | Family-run Japanese sushi in Steveston, Richmond BC</title>
+<meta name="description" content="Village Sushi Bar, a small family-run Japanese sushi restaurant at 13020 No 2 Rd #150, Richmond, BC. Fresh nigiri, sashimi and rolls. Open Wednesday to Saturday.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#1b2a49;
+    --paper:#eef1f4;
+    --tuna:#c4372c;
+    --nori:#26332b;
+    --line:#cdd5de;
+    --white:#ffffff;
+    --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;
+    --sans:"Zen Kaku Gothic New","Hiragino Sans","Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--nori);font-family:var(--sans);font-size:1.0625rem;line-height:1.65}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--tuna);outline-offset:3px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.2;margin:0}
+
+  /* header */
+  header{background:var(--indigo);color:var(--white)}
+  nav{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center;justify-content:space-between;padding:1rem 0}
+  nav .brand{font-family:var(--serif);font-size:1.25rem;font-weight:700;text-decoration:none}
+  nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+  nav ul a{text-decoration:none;opacity:.9}
+  nav ul a:hover{opacity:1;text-decoration:underline}
+
+  /* hero: the one bold moment, a big red sun over the name, like a hinomaru noren */
+  .hero{background:var(--indigo);color:var(--white);padding:3rem 0 4.5rem;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;right:-90px;top:-70px;width:340px;height:340px;border-radius:50%;background:var(--tuna)}
+  .hero .wrap{position:relative}
+  .hero h1{font-size:clamp(2.6rem,8vw,5rem);max-width:12ch}
+  .hero p{max-width:36rem;font-size:1.2rem;margin:1.25rem 0 1.75rem}
+  .badge{display:inline-block;padding:.35rem .9rem;border-radius:999px;font-weight:700;font-size:.95rem;background:var(--white);color:var(--nori)}
+  .badge.open{background:#d9f0dc}
+  .badge.closed{background:#f6d9d6}
+  .actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
+  .btn{display:inline-block;padding:.8rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;border:2px solid var(--white);color:var(--white)}
+  .btn.primary{background:var(--white);color:var(--indigo)}
+  .btn:hover{background:var(--tuna);border-color:var(--tuna);color:var(--white)}
+
+  section{padding:3.5rem 0}
+  section h2{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:.5rem}
+  .lead{max-width:40rem;margin:0 0 2rem}
+
+  /* menu */
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem}
+  .menu-group h3{font-size:1.35rem;border-bottom:2px solid var(--indigo);padding-bottom:.4rem;margin-bottom:.5rem}
+  .menu-group ul{list-style:none;margin:0;padding:0}
+  .menu-group li{display:flex;gap:.75rem;align-items:baseline;padding:.55rem 0;border-bottom:1px solid var(--line)}
+  .menu-group .name{flex:1}
+  .menu-group .note{display:block;font-size:.9rem;color:#5a6672}
+  .menu-group .price{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+  .fineprint{font-size:.9rem;color:#5a6672;margin-top:1.5rem;max-width:44rem}
+
+  /* reviews */
+  .reviews{background:var(--white)}
+  .score{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:baseline;margin-bottom:2rem}
+  .score strong{font-family:var(--serif);font-size:3rem;line-height:1}
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+  blockquote{margin:0;padding:0 0 0 1rem;border-left:4px solid var(--tuna)}
+  blockquote p{margin:0 0 .4rem;font-family:var(--serif);font-size:1.2rem}
+  blockquote cite{font-style:normal;font-size:.9rem;color:#5a6672}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem;align-items:start}
+  dl{margin:0}
+  dt{font-weight:700;margin-top:1rem}
+  dd{margin:0}
+  table{border-collapse:collapse;width:100%;max-width:26rem}
+  td{padding:.35rem 0;border-bottom:1px solid var(--line)}
+  td:last-child{text-align:right}
+  tr.today{font-weight:700;color:var(--tuna)}
+  .map{width:100%;height:340px;border:0;border-radius:8px}
+
+  footer{background:var(--nori);color:var(--white);padding:2rem 0;font-size:.95rem}
+  footer a{color:var(--white)}
+
+  @media (max-width:560px){ .hero::before{width:220px;height:220px;right:-70px;top:-60px} }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="#top">Village Sushi Bar</a>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#visit">Hours &amp; location</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Village Sushi Bar</h1>
+      <p>A small, family-run Japanese sushi restaurant near Steveston. Fresh nigiri, sashimi and rolls, made by a Japanese couple.</p>
+      <span id="openBadge" class="badge">Open Wed to Sat</span>
+      <div class="actions">
+        <a class="btn primary" href="tel:+16042711067">Call 604-271-1067</a>
+        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn" href="#visit">Get directions</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="menu">
+    <div class="wrap">
+      <h2>Menu</h2>
+      <p class="lead">A selection of popular items and prices. Ask at the counter for the full list and daily specials.</p>
+
+      <div class="menu-grid" id="menuGrid"></div>
+
+      <p class="fineprint">Prices are in Canadian dollars and were collected from customer reviews. Check with the restaurant for current prices, today's fish and the complete menu, then update the <code>menu</code> list in this file.</p>
+    </div>
+  </section>
+
+  <section id="reviews" class="reviews">
+    <div class="wrap">
+      <h2>What guests say</h2>
+      <div class="score">
+        <strong>4.5</strong>
+        <span>out of 5 from 217 Google reviews<br>4.6 out of 5 from 19 Tripadvisor reviews</span>
+      </div>
+      <div class="quotes">
+        <blockquote><p>Amazing little community sushi restaurant!</p><cite>Joey M, Google, April 2025</cite></blockquote>
+        <blockquote><p>Cute mom and pop shop and prices are worth coming back for.</p><cite>Carmen P, Google, June 2025</cite></blockquote>
+        <blockquote><p>A true hidden gem, with incredibly fresh fish.</p><cite>Kevin C, Google, April 2026</cite></blockquote>
+      </div>
+      <p class="fineprint">Guests often mention that portions are traditional in size and the nigiri is generous with fish, so you may want to order a little extra. <a href="https://www.google.com/maps/search/?api=1&query=Village+Sushi+Bar+13020+No+2+Rd+%23150+Richmond+BC" target="_blank" rel="noopener">Read all reviews on Google Maps</a>.</p>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <h2>Hours &amp; location</h2>
+      <div class="visit-grid">
+        <div>
+          <table id="hours" aria-label="Opening hours"></table>
+          <dl>
+            <dt>Address</dt>
+            <dd>13020 No 2 Rd #150<br>Richmond, BC V7E 6S3</dd>
+            <dt>Phone</dt>
+            <dd><a href="tel:+16042711067">604-271-1067</a></dd>
+            <dt>Find us online</dt>
+            <dd><a href="https://www.facebook.com/VillageSushiBar/" target="_blank" rel="noopener">Village Sushi Bar on Facebook</a></dd>
+            <dt>Good to know</dt>
+            <dd>The dining room is small and there is street parking. Takeout works well for rolls and nigiri. Quieter times mean shorter waits.</dd>
+          </dl>
+          <div class="actions">
+            <a class="btn primary" style="background:var(--indigo);color:#fff;border-color:var(--indigo)" href="https://www.google.com/maps/dir/?api=1&destination=13020+No+2+Rd+%23150+Richmond+BC+V7E+6S3" target="_blank" rel="noopener">Get directions</a>
+          </div>
+        </div>
+        <iframe class="map" title="Map showing Village Sushi Bar at 13020 No 2 Rd, Richmond"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Village+Sushi+Bar+13020+No+2+Rd+%23150+Richmond+BC+V7E+6S3&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>Village Sushi Bar</strong> &nbsp; 13020 No 2 Rd #150, Richmond, BC V7E 6S3 &nbsp; <a href="tel:+16042711067">604-271-1067</a>
+  </div>
+</footer>
+
+<script>
+  // ---- EDIT HERE: menu items and prices ----
+  const menu = [
+    { group: "Nigiri (per piece)", items: [
+      { name: "Inari",  price: 2.00 },
+      { name: "Tamago", price: 2.00 },
+      { name: "Toro",   price: 4.00 },
+      { name: "Hotate (scallop)", price: 3.75 }
+    ]},
+    { group: "Sashimi", items: [
+      { name: "Shimesaba (marinated mackerel)", note: "5 pieces", price: 12.50 },
+      { name: "Salmon sashimi", note: "5 pieces", price: 12.50 }
+    ]},
+    { group: "Rolls", items: [
+      { name: "Negitoro roll", price: 4.75 },
+      { name: "Umekyu roll (plum and cucumber)", price: 4.00 },
+      { name: "Chopped scallop roll", price: 5.50 },
+      { name: "Deluxe futomaki", note: "Shiitake mushroom and BBQ eel", price: 8.25 }
+    ]}
+  ];
+
+  // ---- EDIT HERE: opening hours (0 = Sunday) ----
+  const hours = [
+    { day: "Sunday",    open: [] },
+    { day: "Monday",    open: [] },
+    { day: "Tuesday",   open: [] },
+    { day: "Wednesday", open: [[11,14],[17,20]] },
+    { day: "Thursday",  open: [[11,14],[17,20]] },
+    { day: "Friday",    open: [[11,14],[17,20]] },
+    { day: "Saturday",  open: [[11,14],[17,20]] }
+  ];
+
+  const fmtHour = h => { const s = h >= 12 ? "PM" : "AM"; const n = h % 12 || 12; return n + " " + s; };
+  const fmtRanges = r => r.length ? r.map(([a,b]) => fmtHour(a) + " to " + fmtHour(b)).join(", ") : "Closed";
+
+  // menu
+  const grid = document.getElementById("menuGrid");
+  menu.forEach(g => {
+    const div = document.createElement("div");
+    div.className = "menu-group";
+    const h = document.createElement("h3"); h.textContent = g.group; div.appendChild(h);
+    const ul = document.createElement("ul");
+    g.items.forEach(i => {
+      const li = document.createElement("li");
+      const nm = document.createElement("span"); nm.className = "name"; nm.textContent = i.name;
+      if (i.note) { const n = document.createElement("span"); n.className = "note"; n.textContent = i.note; nm.appendChild(n); }
+      const pr = document.createElement("span"); pr.className = "price"; pr.textContent = "$" + i.price.toFixed(2);
+      li.append(nm, pr); ul.appendChild(li);
+    });
+    div.appendChild(ul); grid.appendChild(div);
+  });
+
+  // current time in Richmond, BC (Pacific), regardless of the visitor's own time zone
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Vancouver", weekday: "long", hour: "numeric", minute: "numeric", hour12: false }).formatToParts(new Date());
+  const get = t => parts.find(p => p.type === t).value;
+  const today = get("weekday");
+  const nowH = (parseInt(get("hour"), 10) % 24) + parseInt(get("minute"), 10) / 60;
+
+  // hours table
+  const table = document.getElementById("hours");
+  hours.forEach(d => {
+    const tr = document.createElement("tr");
+    if (d.day === today) tr.className = "today";
+    const a = document.createElement("td"); a.textContent = d.day;
+    const b = document.createElement("td"); b.textContent = fmtRanges(d.open);
+    tr.append(a, b); table.appendChild(tr);
+  });
+
+  // open/closed badge
+  const todayRow = hours.find(d => d.day === today);
+  const isOpen = todayRow && todayRow.open.some(([a,b]) => nowH >= a && nowH < b);
+  const badge = document.getElementById("openBadge");
+  badge.textContent = isOpen ? "Open now" : "Closed now. Open Wed to Sat";
+  badge.classList.add(isOpen ? "open" : "closed");
+</script>
+</body>
+</html>
